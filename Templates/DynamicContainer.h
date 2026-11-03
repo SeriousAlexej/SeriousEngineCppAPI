@@ -70,10 +70,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
     inline ~CDynamicContainerIterator_##TYPE() { dci_Index = -1; p_cur.Reset(); }\
     inline void MoveToNext() { dci_Index++; if(IsPastEnd()) p_cur.Reset(); else p_cur = dci_Array.Pointer(dci_Index); }\
     inline BOOL IsPastEnd() { return dci_Index>=dci_Array.Count(); }\
-    inline TYPE##Ptr Current() { return p_cur; }\
-    inline TYPE##Ptr operator*() { return p_cur; }\
-    inline operator TYPE##Ptr () { return p_cur; }\
-    inline TYPE##Ptr operator->() { return p_cur; }\
+    inline TYPE##Ptr& Current() { return p_cur; }\
+    inline TYPE##Ptr& operator*() { return p_cur; }\
+    inline operator TYPE##Ptr& () { return p_cur; }\
+    inline TYPE##Ptr& operator->() { return p_cur; }\
   };
 
 DECLARE_CDynamicContainer(CTextureData)
