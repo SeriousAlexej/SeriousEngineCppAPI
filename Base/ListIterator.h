@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 /* simple list iterator */
-template<typename TObjectPtr, TObjectPtr::THandleType*(*getterFunc)(CListNode_*)>
+template<typename TObjectPtr, typename TObjectPtr::THandleType*(*getterFunc)(CListNode_*)>
 class CListIter
 {
 public:
@@ -66,10 +66,10 @@ public:
   }
 
   /* Get current element. */
-  TObjectPtr::TObjectType& Current() { return *mp_object; }
-  TObjectPtr::TObjectType& operator*() { return *mp_object; }
-  operator TObjectPtr::TObjectType* () { return &(*mp_object); }
-  TObjectPtr::TObjectType* operator->() { return &(*mp_object); }
+  typename TObjectPtr::TObjectType& Current() { return *mp_object; }
+  typename TObjectPtr::TObjectType& operator*() { return *mp_object; }
+  operator typename TObjectPtr::TObjectType* () { return &(*mp_object); }
+  typename TObjectPtr::TObjectType* operator->() { return &(*mp_object); }
 
 private:
   inline void _UpdateObject()
