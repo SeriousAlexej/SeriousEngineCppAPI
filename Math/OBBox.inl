@@ -104,6 +104,7 @@ inline FLOATobbox3D::~FLOATobbox3D()
 inline FLOATobbox3D& FLOATobbox3D::operator=(const FLOATobbox3D& o)
 {
   FLOATobbox3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void FLOATobbox3D::SetToNormalizedEmpty()
@@ -215,6 +216,7 @@ inline DOUBLEobbox3D::~DOUBLEobbox3D()
 inline DOUBLEobbox3D& DOUBLEobbox3D::operator=(const DOUBLEobbox3D& o)
 {
   DOUBLEobbox3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline void DOUBLEobbox3D::SetToNormalizedEmpty()
