@@ -57,23 +57,30 @@ public:
   }
   inline TPointer& operator=(TObject* p)
   {
+    TObjectCHandle* h = (p && p->C_Handle()) ? (TObjectCHandle*)p->C_Handle() : nullptr;
     m_object.reset();
-    if (p && p->C_Handle())
-      m_object.emplace((TObjectCHandle*)p->C_Handle(), false);
+    if (h)
+      m_object.emplace(h, false);
     return *this;
   }
   inline TPointer& operator=(const TPointer<TObject, TObjectCHandle>& o)
   {
+    if (this == &o)
+      return *this;
+    TObjectCHandle* h = o ? (TObjectCHandle*)o.m_object->C_Handle() : nullptr;
     m_object.reset();
-    if (o)
-      m_object.emplace((TObjectCHandle*)o.m_object->C_Handle(), false);
+    if (h)
+      m_object.emplace(h, false);
     return *this;
   }
   inline TPointer& operator=(TPointer<TObject, TObjectCHandle>&& o)
   {
+    if (this == &o)
+      return *this;
+    TObjectCHandle* h = o ? o.m_object->C_Handle() : nullptr;
     m_object.reset();
-    if (o)
-      m_object.emplace(o.m_object->C_Handle(), false);
+    if (h)
+      m_object.emplace(h, false);
     o.m_object.reset();
     return *this;
   }
@@ -93,7 +100,7 @@ public:
   }
   inline TObject& operator*()
   {
-    return *m_object;
+    return m_object.value();
   }
   inline const TObject* operator->() const
   {
@@ -103,7 +110,7 @@ public:
   }
   inline const TObject& operator*() const
   {
-    return *m_object;
+    return m_object.value();
   }
   inline void Reset()
   {
