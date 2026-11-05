@@ -48,6 +48,7 @@ inline FLOATquat3D::~FLOATquat3D()
 inline FLOATquat3D& FLOATquat3D::operator=(const FLOATquat3D& o)
 {
   FLOATquat3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline FLOAT FLOATquat3D::x() const
@@ -255,6 +256,7 @@ inline DOUBLEquat3D::~DOUBLEquat3D()
 inline DOUBLEquat3D& DOUBLEquat3D::operator=(const DOUBLEquat3D& o)
 {
   DOUBLEquat3D_copy(mp_handle, o);
+  return *this;
 }
 
 inline DOUBLE DOUBLEquat3D::x() const
