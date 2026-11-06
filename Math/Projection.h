@@ -31,6 +31,7 @@ class CProjection3D
 {
 public:
   CProjection3D(CProjection3D_* p, bool owner = false);
+  virtual ~CProjection3D();
 
   // member referencing
   /* Reference object placement. */

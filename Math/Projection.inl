@@ -53,6 +53,10 @@ inline CProjection3D::CProjection3D(CProjection3D_* p, bool owner)
 {
 }
 
+inline CProjection3D::~CProjection3D()
+{
+}
+
 inline CPlacement3D& CProjection3D::ObjectPlacementL()
 {
   return pr_ObjectPlacement;
@@ -428,6 +432,9 @@ __forceinline FLOAT3D CIsometricProjection3D::ProjectCoordinateReverse(const FLO
 
 inline CParallelProjection3D::CParallelProjection3D(CParallelProjection3D_* p, bool owner)
   : CProjection3D((CProjection3D_*)p, owner)
+  , pr_vStepFactors(CParallelProjection3D_pr_vStepFactors(C_Handle()), false)
+  , pr_vZoomFactors(CParallelProjection3D_pr_vZoomFactors(C_Handle()), false)
+  , pr_vViewDirection(CParallelProjection3D_pr_vViewDirection(C_Handle()), false)
 {
 }
 
