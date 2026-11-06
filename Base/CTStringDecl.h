@@ -36,8 +36,6 @@ public:
   CTString& operator=(const char* strCharString);
   CTString& operator=(const CTString& strOther);
 
-  /* Check if string data is valid. */
-  BOOL IsValid() const;
 
   // return length of the string
   INDEX Length() const;
