@@ -27,6 +27,8 @@ public:
   CTextureData(CTextureData_* p, bool owner = false);
   CTextureData();
   ~CTextureData();
+  CTextureData(const CTextureData& o) = delete;
+  CTextureData& operator=(const CTextureData& o) = delete;
 
   ULONG td_ptegEffect_teg_ulEffectType();
   void td_ptegEffect_AddEffectSource(ULONG ulEffectSourceType, PIX pixU0, PIX pixV0, PIX pixU1, PIX pixV1);
