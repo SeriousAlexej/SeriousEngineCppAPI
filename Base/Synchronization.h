@@ -25,6 +25,8 @@ public:
   CTCriticalSection(CTCriticalSection_* p, bool owner = false);
   CTCriticalSection();
   ~CTCriticalSection();
+  CTCriticalSection(const CTCriticalSection& o) = delete;
+  CTCriticalSection& operator=(const CTCriticalSection& o) = delete;
 
   inline CTCriticalSection_* C_Handle() { return mp_handle; }
   inline const CTCriticalSection_* C_Handle() const { return mp_handle; }
@@ -43,6 +45,8 @@ public:
   CTSingleLock(CTSingleLock_* p, bool owner = false);
   CTSingleLock(CTCriticalSection_* pcs, BOOL bLock);
   ~CTSingleLock();
+  CTSingleLock(const CTSingleLock& o) = delete;
+  CTSingleLock& operator=(const CTSingleLock& o) = delete;
 
   void Lock();
   BOOL TryToLock();

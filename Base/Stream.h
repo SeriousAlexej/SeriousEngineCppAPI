@@ -24,6 +24,8 @@ public:
   CChunkID(CChunkID_* p, bool owner = false);
   CChunkID(const char* strString = "    ");
   ~CChunkID();
+  CChunkID(const CChunkID& cidOther) = delete;
+  CChunkID& operator=(const CChunkID& cidOther) = delete;
   BOOL operator==(const CChunkID& cidOther) const;
   BOOL operator!=(const CChunkID& cidOther) const;
   operator const char* () const;
@@ -106,16 +108,16 @@ public:
 
   __forceinline CChunkID GetID_t() // throw char *
   {
-    CChunkID id(CTStream_GetID_t(mp_stream), true);
+    CChunkID_* pid = CTStream_GetID_t(mp_stream);
     SECppAPI_CheckException();
-    return id;
+    return CChunkID(pid, true);
   }
 
   __forceinline CChunkID PeekID_t() // throw char *
   {
-    CChunkID id(CTStream_PeekID_t(mp_stream), true);
+    CChunkID_* pid = CTStream_PeekID_t(mp_stream);
     SECppAPI_CheckException();
-    return id;
+    return CChunkID(pid, true);
   }
   void ExpectID_t(const CChunkID& cidExpected); // throw char *
   void ExpectKeyword_t(const CTString& strKeyword); // throw char *
@@ -162,6 +164,8 @@ public:
   CTFileStream(CTFileStream_* p, bool owner = false);
   CTFileStream();
   ~CTFileStream();
+  CTFileStream(const CTFileStream& o) = delete;
+  CTFileStream& operator=(const CTFileStream& o) = delete;
 
   /* Open an existing file. */
   void Open_t(const CTFileName& fnFileName, enum CTStream::OpenMode om = CTStream::OM_READ); // throw char *
@@ -183,6 +187,8 @@ public:
   CTMemoryStream();
   CTMemoryStream(void* pvBuffer, SLONG slSize, CTStream::OpenMode om = CTStream::OM_READ);
   ~CTMemoryStream();
+  CTMemoryStream(const CTMemoryStream& o) = delete;
+  CTMemoryStream& operator=(const CTMemoryStream& o) = delete;
 
   /* Lock the buffer contents and it's size. */
   void LockBuffer(void** ppvBuffer, SLONG* pslSize);

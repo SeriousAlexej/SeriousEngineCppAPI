@@ -24,6 +24,8 @@ public:
   CImageInfo(CImageInfo_* p, bool owner = false);
   CImageInfo();
   ~CImageInfo();
+  CImageInfo(const CImageInfo& o) = delete;
+  CImageInfo& operator=(const CImageInfo& o) = delete;
 
   // reads image info raw format from file
   void Read_t(CTStream* inFile); // throw char *

@@ -24,6 +24,8 @@ public:
   CViewPort(CViewPort_* p, bool owner = false);
   CViewPort(PIX width, PIX height, HWND hwnd);
   ~CViewPort();
+  CViewPort(const CViewPort& o) = delete;
+  CViewPort& operator=(const CViewPort& o) = delete;
 
   // open/close canvas window
   void OpenCanvas();
