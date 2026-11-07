@@ -25,7 +25,7 @@ inline void InitTranslation()
 
 inline void AddTranslationTable_t(const CTFileName& fnmTable)
 {
-  AddTranslationTable_t(fnmTable);
+  AddTranslationTable_t_(fnmTable);
   SECppAPI_CheckException();
 }
 

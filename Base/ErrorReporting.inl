@@ -23,6 +23,7 @@ inline void ThrowF_t [[noreturn]] (const char* strFormat, ...)
   va_list arg;
   va_start(arg, strFormat); // variable arguments start after this argument
   _vsnprintf(strBuffer, slBufferSize, strFormat, arg);
+  strBuffer[slBufferSize] = '\0';
   va_end(arg);
   ThrowF_t_(strBuffer);
   SECppAPI_CheckException();

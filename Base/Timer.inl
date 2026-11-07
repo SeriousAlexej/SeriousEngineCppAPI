@@ -38,7 +38,7 @@ inline CTimerValue::CTimerValue(DOUBLE dSeconds)
 }
 
 inline CTimerValue::CTimerValue(const CTimerValue& o)
-  : CTimerValue(CTimerValue_clone(o))
+  : CTimerValue(CTimerValue_clone(o), true)
 {
 }
 
