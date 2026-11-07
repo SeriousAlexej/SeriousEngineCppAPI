@@ -235,8 +235,9 @@ inline void CTStream::DictionaryWriteEnd_t()
 
 inline SLONG CTStream::DictionaryReadBegin_t()
 {
-  CTStream_DictionaryReadBegin_t(mp_stream);
+  const auto res = CTStream_DictionaryReadBegin_t(mp_stream);
   SECppAPI_CheckException();
+  return res;
 }
 
 inline void CTStream::DictionaryReadEnd_t()
