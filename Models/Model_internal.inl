@@ -366,6 +366,11 @@ inline PolygonsPerPatch& PolygonsPerPatch::operator=(const PolygonsPerPatch& o)
   return *this;
 }
 
+inline void PolygonsPerPatch::Clear()
+{
+  PolygonsPerPatch_Clear(mp_handle);
+}
+
 
 inline CModelCollisionBox::CModelCollisionBox(CModelCollisionBox_* p, bool owner)
   : m_owner(owner)
