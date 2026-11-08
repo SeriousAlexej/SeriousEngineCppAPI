@@ -40,6 +40,8 @@ public:
   CSoundObject(CSoundObject_* p, bool owner = false);
   CSoundObject();
   ~CSoundObject();
+  CSoundObject(const CSoundObject& o) = delete;
+  CSoundObject& operator=(const CSoundObject& o) = delete;
 
   // copy from another object of same class
   void Copy(CSoundObject& soOther);

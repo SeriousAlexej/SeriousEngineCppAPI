@@ -27,6 +27,8 @@ public:
   CSoundData(CSoundData_* p, bool owner = false);
   CSoundData();
   ~CSoundData();
+  CSoundData(const CSoundData& o) = delete;
+  CSoundData& operator=(const CSoundData& o) = delete;
 
   // get sound length in seconds
   DOUBLE GetSecondsLength();

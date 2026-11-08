@@ -34,6 +34,8 @@ public:
   // dualhead cloning
   CDrawPort(CDrawPort_* pdpBase, BOOL bLeft);
   ~CDrawPort();
+  CDrawPort(const CDrawPort& o) = delete;
+  CDrawPort& operator=(const CDrawPort& o) = delete;
 
   CRaster dp_Raster(); // pointer to the Raster this refers to
   const CRaster dp_Raster() const;
