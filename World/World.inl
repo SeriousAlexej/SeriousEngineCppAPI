@@ -229,6 +229,7 @@ inline void CWorld::UpdateSectorsDuringVertexChange(CBrushVertexSelection& selVe
 inline void CWorld::TriangularizeForVertices(CBrushVertexSelection& selVertex)
 {
   CWorld_TriangularizeForVertices(C_Handle(), selVertex);
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::CSGAdd(CEntity& enThis, CWorld& woOther, CEntity& enOther, const CPlacement3D& plOther)
