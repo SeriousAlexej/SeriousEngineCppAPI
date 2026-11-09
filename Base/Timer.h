@@ -72,6 +72,9 @@ public:
   explicit CTimerHandler(void(*callback)(void) noexcept(true));
   virtual ~CTimerHandler();
 
+  CTimerHandler(const CTimerHandler& o) = delete;
+  CTimerHandler& operator=(const CTimerHandler& o) = delete;
+
   inline CTimerHandler_* C_Handle() { return mp_handle; }
   inline const CTimerHandler_* C_Handle() const { return mp_handle; }
   inline operator CTimerHandler_* () { return C_Handle(); }
