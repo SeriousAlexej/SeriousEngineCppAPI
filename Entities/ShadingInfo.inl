@@ -15,7 +15,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-inline CShadingInfo::CShadingInfo(CShadingInfo_* p)
+inline CShadingInfo::CShadingInfo(CShadingInfo_* p, bool)
   : mp_handle(p)
   , si_pbpoPolygon(*CShadingInfo_si_pbpoPolygon(mp_handle))
   , si_ptrTerrain(*CShadingInfo_si_ptrTerrain(mp_handle))

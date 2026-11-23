@@ -25,9 +25,9 @@ class CModelPatch
 public:
   CModelPatch(CModelPatch_* p, bool owner = false);
   CModelPatch();
-  CModelPatch(const CModelPatch& o);
   ~CModelPatch();
-  CModelPatch& operator=(const CModelPatch& o);
+  CModelPatch(const CModelPatch& o) = delete;
+  CModelPatch& operator=(const CModelPatch& o) = delete;
 
   void Read_t(CTStream* strFile); // throw char *
   void Write_t(CTStream* strFile); // throw char *
@@ -62,7 +62,7 @@ class ModelMipInfo
 public:
   ModelMipInfo(ModelMipInfo_* p, bool owner = false);
   ModelMipInfo();
-  ModelMipInfo(const ModelMipInfo& o);
+  ModelMipInfo(const ModelMipInfo& o) = delete;
   ~ModelMipInfo();
   ModelMipInfo& operator=(const ModelMipInfo& o);
 

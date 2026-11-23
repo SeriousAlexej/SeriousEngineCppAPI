@@ -30,21 +30,10 @@ inline CModelPatch::CModelPatch()
 {
 }
 
-inline CModelPatch::CModelPatch(const CModelPatch& o)
-  : CModelPatch(CModelPatch_clone(o), true)
-{
-}
-
 inline CModelPatch::~CModelPatch()
 {
   if (m_owner)
     CModelPatch_delete(mp_handle);
-}
-
-inline CModelPatch& CModelPatch::operator=(const CModelPatch& o)
-{
-  CModelPatch_copy(mp_handle, o);
-  return *this;
 }
 
 inline void CModelPatch::Read_t(CTStream* strFile)
@@ -83,11 +72,6 @@ inline ModelMipInfo::ModelMipInfo(ModelMipInfo_* p, bool owner)
 
 inline ModelMipInfo::ModelMipInfo()
   : ModelMipInfo(ModelMipInfo_new(), true)
-{
-}
-
-inline ModelMipInfo::ModelMipInfo(const ModelMipInfo& o)
-  : ModelMipInfo(ModelMipInfo_clone(o), true)
 {
 }
 

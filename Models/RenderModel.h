@@ -90,7 +90,7 @@ class CRenderModel
 public:
   CRenderModel(CRenderModel_* p, bool owner = false);
   CRenderModel();
-  CRenderModel(const CRenderModel& o);
+  CRenderModel(const CRenderModel& o) = delete;
   ~CRenderModel();
   CRenderModel& operator=(const CRenderModel& o);
 

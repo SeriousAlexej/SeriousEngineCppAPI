@@ -25,9 +25,9 @@ class CModelObject : public CAnimObject
 public:
   CModelObject(CModelObject_* p, bool owner = false);
   CModelObject();
-  CModelObject(const CModelObject& o);
   ~CModelObject();
-  CModelObject& operator=(const CModelObject& o);
+  CModelObject(const CModelObject& o) = delete;
+  CModelObject& operator=(const CModelObject& o) = delete;
 
   // copy from another object of same class
   void Copy(CModelObject& moOther);
@@ -165,11 +165,7 @@ public:
 class CAttachmentModelObject
 {
 public:
-  CAttachmentModelObject(CAttachmentModelObject_* p, bool owner = false);
-  CAttachmentModelObject();
-  CAttachmentModelObject(const CAttachmentModelObject& o);
-  ~CAttachmentModelObject();
-  CAttachmentModelObject& operator=(const CAttachmentModelObject& o);
+  explicit CAttachmentModelObject(CAttachmentModelObject_* p, bool dummy = false);
 
   inline CAttachmentModelObject_* C_Handle() { return mp_handle; }
   inline const CAttachmentModelObject_* C_Handle() const { return mp_handle; }
@@ -177,7 +173,6 @@ public:
   inline operator const CAttachmentModelObject_* () const { return C_Handle(); }
 
 private:
-  bool m_owner = true;
   CAttachmentModelObject_* mp_handle = nullptr;
 
 public:

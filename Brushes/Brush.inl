@@ -232,21 +232,10 @@ inline CBrushPolygonTexture::CBrushPolygonTexture()
 {
 }
 
-inline CBrushPolygonTexture::CBrushPolygonTexture(const CBrushPolygonTexture& o)
-  : CBrushPolygonTexture(CBrushPolygonTexture_clone(o), true)
-{
-}
-
 inline CBrushPolygonTexture::~CBrushPolygonTexture()
 {
   if (m_owner)
     CBrushPolygonTexture_delete(mp_handle);
-}
-
-inline CBrushPolygonTexture& CBrushPolygonTexture::operator=(const CBrushPolygonTexture& o)
-{
-  CBrushPolygonTexture_copy(mp_handle, o);
-  return *this;
 }
 
 inline CBrushPolygonTexture& CBrushPolygonTexture::CopyTextureProperties(CBrushPolygonTexture& bptOther, BOOL bCopyMapping)
@@ -324,21 +313,10 @@ inline CBrushPolygon::CBrushPolygon()
 {
 }
 
-inline CBrushPolygon::CBrushPolygon(const CBrushPolygon& o)
-  : CBrushPolygon(CBrushPolygon_clone(o), true)
-{
-}
-
 inline CBrushPolygon::~CBrushPolygon()
 {
   if (m_owner)
     CBrushPolygon_delete(mp_handle);
-}
-
-inline CBrushPolygon& CBrushPolygon::operator=(const CBrushPolygon& o)
-{
-  CBrushPolygon_copy(mp_handle, o);
-  return *this;
 }
 
 inline void CBrushPolygon::InitializeShadowMap()

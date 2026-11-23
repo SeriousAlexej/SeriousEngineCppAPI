@@ -50,19 +50,14 @@ public:
 class COneAnim
 {
 public:
-  COneAnim(COneAnim_* p, bool owner = false);
-  COneAnim();
-  COneAnim(const COneAnim& o);
-  ~COneAnim();
-  COneAnim& operator=(const COneAnim& oaAnim);
+  explicit COneAnim(COneAnim_* p, bool dummy = false);
 
   inline COneAnim_* C_Handle() { return mp_handle; }
   inline const COneAnim_* C_Handle() const { return mp_handle; }
   inline operator COneAnim_* () { return C_Handle(); }
   inline operator const COneAnim_* () const { return C_Handle(); }
 
-protected:
-  bool m_owner = true;
+private:
   COneAnim_* mp_handle = nullptr;
 
 public:
@@ -81,7 +76,8 @@ public:
   CAnimData(CAnimData_* p, bool owner = false);
   CAnimData();
   ~CAnimData();
-  CAnimData& operator=(const CAnimData& oaAnim);
+  CAnimData(const CAnimData& oaAnim) = delete;
+  CAnimData& operator=(const CAnimData& oaAnim) = delete;
 
   COneAnimPtr ad_Anims(INDEX i);
   COneAnimPtr ad_Anims(INDEX i) const;

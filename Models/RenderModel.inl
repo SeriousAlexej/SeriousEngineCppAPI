@@ -195,11 +195,6 @@ inline CRenderModel::CRenderModel()
 {
 }
 
-inline CRenderModel::CRenderModel(const CRenderModel& o)
-  : CRenderModel(CRenderModel_clone(o), true)
-{
-}
-
 inline CRenderModel::~CRenderModel()
 {
   if (m_owner)

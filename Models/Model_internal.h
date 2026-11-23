@@ -200,7 +200,7 @@ class ModelPolygon
 public:
   ModelPolygon(ModelPolygon_* p, bool owner = false);
   ModelPolygon();
-  ModelPolygon(const ModelPolygon& o);
+  ModelPolygon(const ModelPolygon& o) = delete;
   ~ModelPolygon();
   ModelPolygon& operator=(const ModelPolygon& o);
 
@@ -230,7 +230,7 @@ class MappingSurface
 public:
   MappingSurface(MappingSurface_* p, bool owner = false);
   MappingSurface();
-  MappingSurface(const MappingSurface& o);
+  MappingSurface(const MappingSurface& o) = delete;
   ~MappingSurface();
   MappingSurface& operator=(const MappingSurface& o);
   BOOL operator==(const MappingSurface& o) const;
@@ -280,7 +280,7 @@ class PolygonsPerPatch
 public:
   PolygonsPerPatch(PolygonsPerPatch_* p, bool owner = false);
   PolygonsPerPatch();
-  PolygonsPerPatch(const PolygonsPerPatch& o);
+  PolygonsPerPatch(const PolygonsPerPatch& o) = delete;
   ~PolygonsPerPatch();
   PolygonsPerPatch& operator=(const PolygonsPerPatch& o);
 

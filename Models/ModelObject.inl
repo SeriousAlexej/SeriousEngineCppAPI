@@ -34,23 +34,12 @@ inline CModelObject::CModelObject()
 {
 }
 
-inline CModelObject::CModelObject(const CModelObject& o)
-  : CModelObject(CModelObject_clone(o), true)
-{
-}
-
 inline CModelObject::~CModelObject()
 {
   if (m_owner)
     CModelObject_delete(C_Handle());
   m_owner = false;
   mp_handle = nullptr;
-}
-
-inline CModelObject& CModelObject::operator=(const CModelObject& o)
-{
-  CModelObject_copy(C_Handle(), o);
-  return *this;
 }
 
 inline void CModelObject::Copy(CModelObject& moOther)
@@ -455,37 +444,12 @@ inline SLONG CModelObject::GetUsedMemory()
 }
 
 
-inline CAttachmentModelObject::CAttachmentModelObject(CAttachmentModelObject_* p, bool owner)
-  : m_owner(owner)
-  , mp_handle(p)
+inline CAttachmentModelObject::CAttachmentModelObject(CAttachmentModelObject_* p, bool)
+  : mp_handle(p)
   , amo_lnInMain(CAttachmentModelObject_amo_lnInMain(mp_handle), false)
   , amo_iAttachedPosition(*CAttachmentModelObject_amo_iAttachedPosition(mp_handle))
   , amo_plRelative(CAttachmentModelObject_amo_plRelative(mp_handle), false)
   , amo_moModelObject(CAttachmentModelObject_amo_moModelObject(mp_handle), false)
   , amo_prm(*CAttachmentModelObject_amo_prm(mp_handle))
 {
-}
-
-inline CAttachmentModelObject::CAttachmentModelObject()
-  : CAttachmentModelObject(CAttachmentModelObject_new(), true)
-{
-}
-
-inline CAttachmentModelObject::CAttachmentModelObject(const CAttachmentModelObject& o)
-  : CAttachmentModelObject(CAttachmentModelObject_clone(o), true)
-{
-}
-
-inline CAttachmentModelObject::~CAttachmentModelObject()
-{
-  if (m_owner)
-    CAttachmentModelObject_delete(C_Handle());
-  m_owner = false;
-  mp_handle = nullptr;
-}
-
-inline CAttachmentModelObject& CAttachmentModelObject::operator=(const CAttachmentModelObject& o)
-{
-  CAttachmentModelObject_copy(C_Handle(), o);
-  return *this;
 }

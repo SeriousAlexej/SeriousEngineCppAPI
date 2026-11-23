@@ -33,7 +33,7 @@ class TileLayer
 public:
   TileLayer(TileLayer_* p, bool owner = false);
   TileLayer();
-  TileLayer(const TileLayer& o);
+  TileLayer(const TileLayer& o) = delete;
   ~TileLayer();
   TileLayer& operator=(const TileLayer& o);
 
@@ -61,7 +61,7 @@ class TileArrays
 public:
   TileArrays(TileArrays_* p, bool owner = false);
   TileArrays();
-  TileArrays(const TileArrays& o);
+  TileArrays(const TileArrays& o) = delete;
   ~TileArrays();
   TileArrays& operator=(const TileArrays& o);
 
@@ -92,9 +92,9 @@ class CArrayHolder
 public:
   CArrayHolder(CArrayHolder_* p, bool owner = false);
   CArrayHolder();
-  CArrayHolder(const CArrayHolder& o);
   ~CArrayHolder();
-  CArrayHolder& operator=(const CArrayHolder& o);
+  CArrayHolder(const CArrayHolder& o) = delete;
+  CArrayHolder& operator=(const CArrayHolder& o) = delete;
 
   // Returns index of new tile arrays
   INDEX GetNewArrays();

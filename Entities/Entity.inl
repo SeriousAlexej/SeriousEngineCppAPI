@@ -47,6 +47,11 @@ __forceinline CTerrainPtr CEntity::en_ptrTerrain()
   return *CEntity_en_ptrTerrain(C_Handle());
 }
 
+__forceinline CShadingInfoPtr CEntity::en_psiShadingInfo()
+{
+  return *CEntity_en_psiShadingInfo(C_Handle());
+}
+
 inline BOOL CEntity::IsSelected() const
 {
   return CEntity_IsSelected(C_Handle());

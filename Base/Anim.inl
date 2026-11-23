@@ -46,36 +46,13 @@ inline CAnimInfo& CAnimInfo::operator=(const CAnimInfo& o)
   return *this;
 }
 
-inline COneAnim::COneAnim(COneAnim_* p, bool owner)
-  : m_owner(owner)
-  , mp_handle(p)
+inline COneAnim::COneAnim(COneAnim_* p, bool)
+  : mp_handle(p)
   , oa_Name(COneAnim_oa_Name(mp_handle))
   , oa_SecsPerFrame(*COneAnim_oa_SecsPerFrame(mp_handle))
   , oa_NumberOfFrames(*COneAnim_oa_NumberOfFrames(mp_handle))
   , oa_FrameIndices(*COneAnim_oa_FrameIndices(mp_handle))
 {
-}
-
-inline COneAnim::COneAnim()
-  : COneAnim(COneAnim_new(), true)
-{
-}
-
-inline COneAnim::COneAnim(const COneAnim& o)
-  : COneAnim(COneAnim_clone(o), true)
-{
-}
-
-inline COneAnim::~COneAnim()
-{
-  if (m_owner)
-    COneAnim_delete(mp_handle);
-}
-
-inline COneAnim& COneAnim::operator=(const COneAnim& oaAnim)
-{
-  COneAnim_copy(mp_handle, oaAnim);
-  return *this;
 }
 
 inline CAnimData::CAnimData(CAnimData_* p, bool owner)
@@ -95,12 +72,6 @@ inline CAnimData::~CAnimData()
     CAnimData_delete(C_Handle());
   m_owner = false;
   mp_handle = nullptr;
-}
-
-inline CAnimData& CAnimData::operator=(const CAnimData& oaAnim)
-{
-  CAnimData_copy(C_Handle(), oaAnim);
-  return *this;
 }
 
 __forceinline COneAnimPtr CAnimData::ad_Anims(INDEX i)

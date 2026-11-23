@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "../Light/LightSource.h"
 #include "EntityEvent.h"
 #include "EntityClass.h"
+#include "ShadingInfo.h"
 #include <SeriousEngineCAPI/Entities/Entity.h>
 
 /*
@@ -52,6 +53,8 @@ public:
   // terrain -- if terrain entity
   CTerrainPtr en_ptrTerrain();
   inline CTerrainPtr GetTerrain() { return en_ptrTerrain(); }
+  // shading info -- used for shadow projection
+  CShadingInfoPtr en_psiShadingInfo();
 
   BOOL IsSelected() const;
   void Select();

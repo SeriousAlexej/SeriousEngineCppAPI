@@ -39,11 +39,6 @@ inline TileLayer::TileLayer()
 {
 }
 
-inline TileLayer::TileLayer(const TileLayer& o)
-  : TileLayer(TileLayer_clone(o), true)
-{
-}
-
 inline TileLayer::~TileLayer()
 {
   if (m_owner)
@@ -74,11 +69,6 @@ inline TileArrays::TileArrays(TileArrays_* p, bool owner)
 
 inline TileArrays::TileArrays()
   : TileArrays(TileArrays_new(), true)
-{
-}
-
-inline TileArrays::TileArrays(const TileArrays& o)
-  : TileArrays(TileArrays_clone(o), true)
 {
 }
 
@@ -113,21 +103,10 @@ inline CArrayHolder::CArrayHolder()
 {
 }
 
-inline CArrayHolder::CArrayHolder(const CArrayHolder& o)
-  : CArrayHolder(CArrayHolder_clone(o), true)
-{
-}
-
 inline CArrayHolder::~CArrayHolder()
 {
   if (m_owner)
     CArrayHolder_delete(mp_handle);
-}
-
-inline CArrayHolder& CArrayHolder::operator=(const CArrayHolder& o)
-{
-  CArrayHolder_copy(mp_handle, o);
-  return *this;
 }
 
 inline INDEX CArrayHolder::GetNewArrays()

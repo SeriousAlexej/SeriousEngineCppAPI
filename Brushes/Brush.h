@@ -209,9 +209,9 @@ class CBrushPolygonTexture
 public:
   CBrushPolygonTexture(CBrushPolygonTexture_* p, bool owner = false);
   CBrushPolygonTexture();
-  CBrushPolygonTexture(const CBrushPolygonTexture& o);
   ~CBrushPolygonTexture();
-  CBrushPolygonTexture& operator=(const CBrushPolygonTexture& o);
+  CBrushPolygonTexture(const CBrushPolygonTexture& o) = delete;
+  CBrushPolygonTexture& operator=(const CBrushPolygonTexture& o) = delete;
 
   CBrushPolygonTexture& CopyTextureProperties(CBrushPolygonTexture& bptOther, BOOL bCopyMapping);
   void Clear();
@@ -269,9 +269,9 @@ class CBrushPolygon
 public:
   CBrushPolygon(CBrushPolygon_* p, bool owner = false);
   CBrushPolygon();
-  CBrushPolygon(const CBrushPolygon& o);
   ~CBrushPolygon();
-  CBrushPolygon& operator=(const CBrushPolygon& o);
+  CBrushPolygon(const CBrushPolygon& o) = delete;
+  CBrushPolygon& operator=(const CBrushPolygon& o) = delete;
 
   /* Initialize shadow map for the polygon. */
   void InitializeShadowMap();

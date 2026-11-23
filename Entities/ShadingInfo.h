@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 class CShadingInfo
 {
 public:
-  explicit CShadingInfo(CShadingInfo_* p);
+  explicit CShadingInfo(CShadingInfo_* p, bool dummy = false);
 
   inline CShadingInfo_* C_Handle() { return mp_handle; }
   inline const CShadingInfo_* C_Handle() const { return mp_handle; }

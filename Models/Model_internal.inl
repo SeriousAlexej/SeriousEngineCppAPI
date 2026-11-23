@@ -231,11 +231,6 @@ inline ModelPolygon::ModelPolygon()
 {
 }
 
-inline ModelPolygon::ModelPolygon(const ModelPolygon& o)
-  : ModelPolygon(ModelPolygon_clone(o), true)
-{
-}
-
 inline ModelPolygon::~ModelPolygon()
 {
   if (m_owner)
@@ -286,11 +281,6 @@ inline MappingSurface::MappingSurface(MappingSurface_* p, bool owner)
 
 inline MappingSurface::MappingSurface()
   : MappingSurface(MappingSurface_new(), true)
-{
-}
-
-inline MappingSurface::MappingSurface(const MappingSurface& o)
-  : MappingSurface(MappingSurface_clone(o), true)
 {
 }
 
@@ -346,11 +336,6 @@ inline PolygonsPerPatch::PolygonsPerPatch(PolygonsPerPatch_* p, bool owner)
 
 inline PolygonsPerPatch::PolygonsPerPatch()
   : PolygonsPerPatch(PolygonsPerPatch_new(), true)
-{
-}
-
-inline PolygonsPerPatch::PolygonsPerPatch(const PolygonsPerPatch& o)
-  : PolygonsPerPatch(PolygonsPerPatch_clone(o), true)
 {
 }
 
