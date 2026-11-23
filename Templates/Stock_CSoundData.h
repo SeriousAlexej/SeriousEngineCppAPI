@@ -23,3 +23,15 @@ inline CSoundDataPtr _pSoundStock_Obtain_t(const CTFileName_* f)
   SECppAPI_CheckException();
   return res;
 }
+
+inline void _pSoundStock_Release(CSoundData_* p)
+{
+  _pSoundStock_Release_(p);
+  SECppAPI_CheckException();
+}
+
+inline void _pSoundStock_FreeUnused()
+{
+  _pSoundStock_FreeUnused_();
+  SECppAPI_CheckException();
+}

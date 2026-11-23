@@ -29,3 +29,9 @@ inline void _pEntityClassStock_Release(CEntityClass_* p)
   _pEntityClassStock_Release_(p);
   SECppAPI_CheckException();
 }
+
+inline void _pEntityClassStock_FreeUnused()
+{
+  _pEntityClassStock_FreeUnused_();
+  SECppAPI_CheckException();
+}

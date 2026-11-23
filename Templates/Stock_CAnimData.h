@@ -23,3 +23,15 @@ inline CAnimDataPtr _pAnimStock_Obtain_t(const CTFileName_* f)
   SECppAPI_CheckException();
   return res;
 }
+
+inline void _pAnimStock_Release(CAnimData_* p)
+{
+  _pAnimStock_Release_(p);
+  SECppAPI_CheckException();
+}
+
+inline void _pAnimStock_FreeUnused()
+{
+  _pAnimStock_FreeUnused_();
+  SECppAPI_CheckException();
+}

@@ -219,11 +219,13 @@ inline void CWorld::Write_t(CTStream* postrm)
 inline void CWorld::UpdateSectorsAfterVertexChange(CBrushVertexSelection& selVertex)
 {
   CWorld_UpdateSectorsAfterVertexChange(C_Handle(), selVertex);
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::UpdateSectorsDuringVertexChange(CBrushVertexSelection& selVertex)
 {
   CWorld_UpdateSectorsDuringVertexChange(C_Handle(), selVertex);
+  SECppAPI_CheckException();
 }
 
 inline void CWorld::TriangularizeForVertices(CBrushVertexSelection& selVertex)

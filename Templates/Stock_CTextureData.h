@@ -23,3 +23,15 @@ inline CTextureDataPtr _pTextureStock_Obtain_t(const CTFileName_* f)
   SECppAPI_CheckException();
   return res;
 }
+
+inline void _pTextureStock_Release(CTextureData_* p)
+{
+  _pTextureStock_Release_(p);
+  SECppAPI_CheckException();
+}
+
+inline void _pTextureStock_FreeUnused()
+{
+  _pTextureStock_FreeUnused_();
+  SECppAPI_CheckException();
+}

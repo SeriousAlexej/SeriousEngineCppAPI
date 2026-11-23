@@ -23,3 +23,15 @@ inline CModelDataPtr _pModelStock_Obtain_t(const CTFileName_* f)
   SECppAPI_CheckException();
   return res;
 }
+
+inline void _pModelStock_Release(CModelData_* p)
+{
+  _pModelStock_Release_(p);
+  SECppAPI_CheckException();
+}
+
+inline void _pModelStock_FreeUnused()
+{
+  _pModelStock_FreeUnused_();
+  SECppAPI_CheckException();
+}
